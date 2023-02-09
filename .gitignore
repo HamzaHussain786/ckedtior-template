@@ -1,0 +1,11 @@
+node_modules/
+plugins/ckeditor.js.map
+build
+# VIM FILES
+*.un~
+*.swp
+*.swo
+*.swn
+
+.DS_Store
+plugins/.DS_Store

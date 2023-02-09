@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="12px" viewBox="0 0 10 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Tasks" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.58">
+        <g id="Present" transform="translate(-383.000000, -228.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Group-5" transform="translate(193.000000, 188.000000)">
+                <g id="Group-4" transform="translate(0.000000, 28.000000)">
+                    <g id="Group-2">
+                        <g id="Group-20" transform="translate(118.001401, 6.000000)">
+                            <g id="Group-19" transform="translate(13.000000, 4.000000)">
+                                <g id="Group-16">
+                                    <g id="format_underlined-24px" transform="translate(56.000000, 0.000000)">
+                                        <path d="M8,11.3333333 C10.2066667,11.3333333 12,9.54 12,7.33333333 L12,2 L10.3333333,2 L10.3333333,7.33333333 C10.3333333,8.62 9.28666667,9.66666667 8,9.66666667 C6.71333333,9.66666667 5.66666667,8.62 5.66666667,7.33333333 L5.66666667,2 L4,2 L4,7.33333333 C4,9.54 5.79333333,11.3333333 8,11.3333333 Z M3.33333333,12.6666667 L3.33333333,14 L12.6666667,14 L12.6666667,12.6666667 L3.33333333,12.6666667 Z" id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

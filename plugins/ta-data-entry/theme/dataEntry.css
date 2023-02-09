@@ -1,0 +1,40 @@
+.ck.ck-sub-menu-bb-dropdown{
+	top: 0 !important;
+	left: 100% !important;
+	z-index: 99 !important;
+}
+
+.simple-box{
+	/* border: 1px solid; */
+	max-width: 500px;
+	/* background-color: lightgray; */
+}
+
+.simple-box-title{
+	max-width: 100px;
+	background-color: rgba(36, 164, 134, 0.16);
+	border: 1px solid rgb(36, 164, 134);
+	margin: 0;
+	min-height: 15px;
+}
+
+.simple-box-description, .multiLine-box-description {
+	border: 1px solid rgb(36, 164, 134);
+	margin: 0;
+	padding: 5px;
+}
+
+.multiLine-box-description-paragraph{
+	background-color: white;
+	border: 1px solid rgba(36, 164, 134, 0.64);
+	width: 100%;
+	margin: 0;
+	height: 200px;
+}
+
+.singleLine-box-description-paragraph{
+	background-color: white;
+	border: 1px solid rgba(36, 164, 134, 0.64);
+	width: 100%;
+	margin: 0;
+}
