@@ -64,7 +64,7 @@ export function _defineSchema(editor) {
 		isInline: true,
 		allowIn: "simpleBox",
 		allowContentOf: "$block",
-		allowAttributes: ['value', 'type']
+		// allowAttributes: ['value', 'type']
 	});
 
 	schema.register("simpleBoxDescription", {
@@ -133,18 +133,6 @@ export function _defineConverters(editor) {
 		}
 	} );
 
-	// let id = 1;
-
-	// editor.conversion.for( 'dataDowncast' ).add( dispatcher => {
-	//     dispatcher.on( 'insert:simpleBox', ( evt, data, conversionApi ) => {
-			
-	//     const viewWriter = conversionApi.writer;
-			
-	//     viewWriter.setAttribute( 'id', `${id}`, conversionApi.mapper.toViewElement(data.item ) )
-			
-	//     id += 1;
-	//     } );
-	// } );
 
 	conversion.for("editingDowncast").elementToElement({
 		model: "simpleBox",
@@ -161,41 +149,40 @@ export function _defineConverters(editor) {
 	conversion.for("upcast").elementToElement({
 		model: "simpleBoxTitle",
 		view: {
-			name: "input",
+			name: "p",
 			classes: "simple-box-title",
 		},
 	});
 
 
+	// conversion.attributeToAttribute( {
+	// 	model: {
+	// 		name: 'simpleBoxTitle',
+	// 		key: 'value',
+	// 	},
+	// 	view: {
+	// 			name: 'input',
+	// 			key: 'value',
+	// 		}
+	// } );
 
-	conversion.attributeToAttribute( {
-		model: {
-			name: 'simpleBoxTitle',
-			key: 'value',
-		},
-		view: {
-				name: 'input',
-				key: 'value',
-			}
-	} );
-
-	conversion.attributeToAttribute( {
-		model: {
-			name: 'simpleBoxTitle',
-			key: 'type',
-		},
-		view: {
-			name: 'input',
-			key: 'type',
-		}
-	} );
+	// conversion.attributeToAttribute( {
+	// 	model: {
+	// 		name: 'simpleBoxTitle',
+	// 		key: 'type',
+	// 	},
+	// 	view: {
+	// 		name: 'input',
+	// 		key: 'type',
+	// 	}
+	// } );
 
 
 
 	conversion.for("dataDowncast").elementToElement({
 		model: "simpleBoxTitle",
 		view: {
-			name: "input",
+			name: "p",
 			classes: "simple-box-title",
 		},
 	});
@@ -203,7 +190,7 @@ export function _defineConverters(editor) {
 	conversion.for("editingDowncast").elementToElement({
 		model: "simpleBoxTitle",
 		view: (modelElement, { writer: viewWriter }) => {
-			const paragraph = viewWriter.createEditableElement("input", {
+			const paragraph = viewWriter.createEditableElement("p", {
 				class: "simple-box-title",
 			});
 			return toWidget(paragraph, viewWriter);

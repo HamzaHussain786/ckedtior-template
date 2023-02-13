@@ -31,9 +31,9 @@ export default class InsertSimpleBoxCommand extends Command {
   }
   
   function createSimpleBox(writer, label, id) {
+    id = 'data-entry-' + id
     const simpleBox = writer.createElement("simpleBox", {id: id});
-    console.log("create is called============================")
-    const simpleBoxTitle = writer.createElement("simpleBoxTitle", {value: label, type: 'text'});
+    const simpleBoxTitle = writer.createElement("simpleBoxTitle");
     const simpleBoxDescription = writer.createElement("simpleBoxDescription");
     const paragraph = writer.createElement("singleLineDescriptionParagraph")
 

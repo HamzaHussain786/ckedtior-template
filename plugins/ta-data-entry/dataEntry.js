@@ -67,6 +67,28 @@ export default class TADataEntry extends Plugin {
 			} );
 
 
+			editor.editing.view.document.on( 'clipboardInput', ( evt, data ) => {
+				console.log("clipboard type",data)
+				if ( data.method == 'paste' ) {
+					const htmlData = data.dataTransfer.getData( 'text/html' );
+					if ( htmlData.indexOf( '<section' ) !== -1 ) {
+						const viewFragment = editor.data.processor.toView( htmlData );
+						const sectionElement = viewFragment.getChild( 0 );
+						if ( sectionElement.hasAttribute( 'id' ) ) {
+							// debugger;simple box widget
+							const newId = 'newId';
+							sectionElement._setAttribute('id',newId)
+							console.log(sectionElement.getAttribute('id'),"this is section id after change---------------------------------------------------")
+							const modelFragment = editor.data.toModel( viewFragment );
+							// editor.model.insertContent( modelFragment );
+							// editor.setData(modelFragment);
+							// data.preventDefault();
+						}
+					}
+				}
+      } );
+
+
 			for ( const option of options ) {
 
 				if ( ['ta-embed-assessment', 'ta-embed-signature', 'ta-embed-company-logo'].includes(option.class) ) {
@@ -112,17 +134,22 @@ export default class TADataEntry extends Plugin {
 
 				// TODO: how to get ElementDefinition
 
+				let next_id = this.getNewId(editor)
+
 				addListToDropdown( submenuView, this.subMenuItems( option ) );
 				dropdownView.panelView.children.add( submenuView );
 				titles[ option.model ] = option.title;
 
 				this.listenTo( submenuView, 'execute', (nav) => {
           const menu = nav.source.label;
-					// editor.execute("insertSimpleBox", menu)
-					let parser = new DOMParser()
-					let ckEditorData = parser.parseFromString(editor.getData(), "text/html");
-					let id = ckEditorData.getElementsByTagName('section').length + 1
-          this.insertFields(menu, editor, id);
+					let current_id = this.getNewId(editor)
+
+					if(current_id > next_id){
+						next_id = current_id
+					}
+
+          this.insertFields(menu, editor, next_id);
+					next_id++;
 
 					dropdownView.set( { isOpen: false } );
 				} );
@@ -156,4 +183,10 @@ export default class TADataEntry extends Plugin {
   insertFields(label, editor, id) {
 		editor.execute("insertSimpleBox", label, id)
       }
+
+	getNewId(editor){
+		let parser = new DOMParser()
+		let ckEditorData = parser.parseFromString(editor.getData(), "text/html");
+		return ckEditorData.getElementsByTagName('section').length + 1
+	}
 }
