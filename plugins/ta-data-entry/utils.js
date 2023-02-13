@@ -106,18 +106,34 @@ export function _defineConverters(editor) {
 
 	// <simpleBox> converters
 	conversion.for("upcast").elementToElement({
-		model: "simpleBox",
 		view: {
 			name: "section",
 			classes: "simple-box",
 		},
+		// model: "simpleBox",
+		model: ( viewElement, { writer: modelWriter } ) => {
+      // Extract the "name" from "{name}".
+      debugger
+      console.log("this is view element---------------------->>>>>", viewElement)
+      // const name = viewElement.getChild( 0 ).data.slice( 1, -1 );
+
+      return modelWriter.createElement( 'simpleBox');
+  }
 	});
 
 	conversion.for("dataDowncast").elementToElement({
 		model: "simpleBox",
-		view: {
-			name: "section",
-			classes: "simple-box",
+		// view: {
+		// 	name: "section",
+		// 	classes: "simple-box",
+		// },
+		view: (modelElement, { writer: viewWriter }) => {
+			debugger
+			const section = viewWriter.createContainerElement("section", {
+				class: "simple-box",
+			});
+
+			return toWidget(section, viewWriter);
 		},
 	});
 
@@ -137,6 +153,7 @@ export function _defineConverters(editor) {
 	conversion.for("editingDowncast").elementToElement({
 		model: "simpleBox",
 		view: (modelElement, { writer: viewWriter }) => {
+			debugger
 			const section = viewWriter.createContainerElement("section", {
 				class: "simple-box",
 			});
